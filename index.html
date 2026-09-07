@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madhyamik English Grammar Master Engine</title>
+  
+  <!-- PWA Manifest Dynamic Injector -->
+  <link rel="manifest" id="manifest-placeholder" />
+  <meta name="theme-color" content="#1e293b" />
+  <meta name="description" content="Interactive PWA for Madhyamik English Grammar with Bengali Explanations" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+    }
+    .glass {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    /* Smooth slide animation for mobile menu */
+    .sidebar-drawer {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col transition-colors duration-300" id="app-body">
+
+  <!-- BACKDROP OVERLAY FOR MOBILE MENU -->
+  <div id="menu-backdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity"></div>
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-30 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md px-4 py-3 sm:px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Left: Logo & Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <!-- BEAUTIFUL MENU BUTTON -->
+        <button id="menu-toggle-btn" aria-label="Toggle Menu" class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:bg-blue-600/20 hover:border-blue-500/50 text-slate-200 hover:text-blue-400 transition shadow-lg active:scale-95 flex items-center justify-center gap-2 group">
+          <svg class="w-6 h-6 stroke-current transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <span class="text-xs font-semibold hidden sm:inline">মেনু ফিল্টার</span>
+        </button>
+
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white text-lg shadow-lg shadow-blue-500/20">
+            📚
+          </div>
+          <div>
+            <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+              Grammar Engine
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Madhyamik</span>
+            </h1>
+            <p class="text-[11px] text-slate-400 hidden sm:block">West Bengal Board English Grammar Practice</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <button id="pwa-install-btn" class="hidden items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-medium transition shadow-lg shadow-emerald-600/20">
+          <span>📲</span> <span class="hidden sm:inline">অ্যাপ</span> ইনস্টল
+        </button>
+
+        <button id="theme-toggle" class="p-2 rounded-xl bg-slate-800 border border-slate-700/80 hover:bg-slate-700 text-slate-300 transition">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <div class="text-right border-l border-slate-800 pl-3">
+          <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">প্রগতি</div>
+          <div class="text-xs sm:text-sm font-bold text-blue-400" id="progress-text">0 / 0</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full flex gap-6 relative">
+
+    <!-- SIDEBAR / DRAWER MENU -->
+    <aside id="sidebar-menu" class="sidebar-drawer fixed lg:sticky top-0 lg:top-20 left-0 h-full lg:h-[calc(100vh-6rem)] w-80 lg:w-72 bg-slate-900/95 lg:bg-transparent border-r lg:border-r-0 border-slate-800 z-50 lg:z-auto p-5 lg:p-0 overflow-y-auto transform -translate-x-full lg:translate-x-0 flex-shrink-0 space-y-5 glass lg:backdrop-blur-none">
+      
+      <!-- Drawer Header (Mobile Only) -->
+      <div class="flex items-center justify-between lg:hidden border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-blue-400">⚡</span>
+          <h2 class="text-sm font-bold text-white uppercase tracking-wider">ফিল্টার মেনু</h2>
+        </div>
+        <button id="close-drawer-btn" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 text-xs">
+          ✕ বন্ধ করুন
+        </button>
+      </div>
+
+      <!-- Search Box -->
+      <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 glass shadow-sm">
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">অনুসন্ধান করুন</h2>
+        <div class="relative">
+          <input type="text" id="search-input" placeholder="প্রশ্ন বা টপিক খুঁজুন..." class="w-full pl-9 pr-3 py-2 bg-slate-900/90 border border-slate-700 rounded-xl text-xs focus:outline-none focus:border-blue-500 text-slate-200 placeholder-slate-500">
+          <span class="absolute left-3 top-2.5 text-slate-500 text-xs">🔍</span>
+        </div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 glass shadow-sm">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">গ্রামার টপিক</h3>
+        <div class="space-y-1" id="category-filters">
+          <!-- JS Inject -->
+        </div>
+      </div>
+
+      <!-- Set Selector -->
+      <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 glass shadow-sm">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">প্রশ্ন সেটসমূহ</h3>
+        <div class="grid grid-cols-2 gap-1.5 max-h-52 overflow-y-auto pr-1" id="set-filters">
+          <!-- JS Inject -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- QUESTION FEED -->
+    <section class="flex-grow space-y-4 w-full">
+      <div class="flex items-center justify-between bg-slate-800/40 p-3 rounded-2xl border border-slate-700/50 backdrop-blur-sm">
+        <span class="text-xs sm:text-sm font-medium text-slate-300" id="active-filter-label">সকল ব্যাকরণ প্রশ্নমালা</span>
+        <button id="reset-all-btn" class="text-xs text-blue-400 hover:text-blue-300 font-semibold px-2.5 py-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 transition">
+          ফিল্টার রিসেট
+        </button>
+      </div>
+
+      <!-- Questions List Container -->
+      <div id="questions-container" class="space-y-4">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-5 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>Madhyamik English Grammar Engine • Complete Interactive Solutions</p>
+      <p class="mt-1 text-[11px] text-slate-600">Offline PWA Ready • Bengali Explanations Included</p>
+    </div>
+  </footer>
+
+  <!-- DATA & ENGINE SCRIPT -->
+  <script>
+    // ==========================================
+    // QUESTION DATABASE (FIGURES OF SPEECH EXCLUDED)
+    // ==========================================
+    const grammarData = [
+      {
+        id: 1, set: "Set 1", category: "Verbs", title: "Correct Verb Forms",
+        question: "Today we are ______ (confined/confining/being confining) in a room as it ______ (is/has been/was) raining since morning and we are busy ______ (playing/played/having played) ludo.",
+        answer: "confined, has been, playing",
+        explanationBn: "• <b>confined</b>: Passive Voice (are + confined)।\n• <b>has been</b>: 'since morning' নির্দেশক থাকায় Present Perfect Continuous Tense।\n• <b>playing</b>: 'busy' শব্দটির পর সর্বদাই Gerund (verb+ing) বসে।"
+      },
+      {
+        id: 2, set: "Set 1", category: "Articles & Prepositions", title: "Articles & Prepositions",
+        question: "Most people are fond ______ mystery stories. They find ______ extra pleasure ______ trying to solve the mystery along with the investigator.",
+        answer: "of, an, in",
+        explanationBn: "• <b>fond of</b>: Appropriate Preposition (পছন্দ করা)।\n• <b>an extra</b>: Vowel দিয়ে শুরু হওয়ায় 'an'।\n• <b>in trying</b>: চেষ্টার মধ্যে আনন্দ খুঁজে পাওয়া বোঝাতে 'in'।"
+      },
+      {
+        id: 3, set: "Set 1", category: "Degree", title: "Comparative Degree",
+        question: "This is one of the oldest houses of our locality. (Change into comparative degree)",
+        answer: "This house is older than most other houses of our locality.",
+        explanationBn: "'One of the + superlative' থাকলে Comparative গঠন: <i>older + than most other + plural noun (houses)</i>।"
+      },
+      {
+        id: 4, set: "Set 1", category: "Joining", title: "Simple Sentence",
+        question: "Arijit Singh is a famous singer. He can sing different kinds of songs. (Change into simple sentence)",
+        answer: "Arijit Singh, a famous singer, can sing different kinds of songs.",
+        explanationBn: "<b>Noun in Apposition</b> নিয়মটি প্রয়োগ করে একটি মাত্র মূল ক্রিয়াপদ রেখে Simple Sentence করা হয়েছে।"
+      },
+      {
+        id: 5, set: "Set 1", category: "Narration", title: "Direct to Indirect",
+        question: "Nisha said to Romita, \"Have you completed your task?\"",
+        answer: "Nisha asked Romita if she had completed her task.",
+        explanationBn: "Interrogative Sentence-এ Reporting verb 'asked' হয় এবং 'if' লিঙ্ক হিসেবে বসে।"
+      },
+      {
+        id: 6, set: "Set 1", category: "Phrasal Verbs", title: "Phrasal Verbs",
+        question: "(i) Tanima is in search of a job.\n(ii) Ankan understands what I am saying.\n(iii) Evening starts early now.\n[List: set in, set out, look for, make out]",
+        answer: "(i) looking for, (ii) makes out, (iii) sets in",
+        explanationBn: "• in search of = looking for (খোঁজা)\n• understands = makes out (বুঝতে পারা)\n• starts = sets in (সূচনা হওয়া)"
+      },
+      {
+        id: 7, set: "Set 2", category: "Articles & Prepositions", title: "Articles & Prepositions",
+        question: "______ July 2023, Dinesh and Tarak Shinde, both Police constables ______ the Maharashtra Police force, achieved ______ commendable feat of nabbing the dreaded robber Sanga from his hideout ______ Latur.",
+        answer: "In, of, a, in",
+        explanationBn: "• মাসের পূর্বে <b>In</b>\n• ফোর্সের সাথে যুক্ত বোঝাতে <b>of</b>\n• একটি কৃতিত্বে <b>a</b>\n• বড় শহরে <b>in</b>।"
+      },
+      {
+        id: 8, set: "Set 3", category: "Joining", title: "Compound Sentence",
+        question: "It was raining hard. Abir went to school. (Turn into a compound sentence)",
+        answer: "It was raining hard, but Abir went to school.",
+        explanationBn: "দুটি বিপরীত ভাবনা যুক্ত করতে Conjunction <b>'but'</b> ব্যবহৃত হয়েছে।"
+      },
+      {
+        id: 9, set: "Set 3", category: "Joining", title: "Complex Sentence",
+        question: "The Nile is the longest river in Africa. It flows through many countries. (Change into a complex sentence)",
+        answer: "The Nile, which is the longest river in Africa, flows through many countries.",
+        explanationBn: "'which' দিয়ে Relative/Adjective Clause তৈরি করা হয়েছে।"
+      },
+      {
+        id: 10, set: "Set 3", category: "Analysis", title: "Clause Analysis",
+        question: "The girl who lost her umbrella in the storm was weeping bitterly. (Analyze the sentence)",
+        answer: "• Principal Clause: The girl was weeping bitterly.\n• Subordinate Adjective Clause: who lost her umbrella in the storm (modifying 'girl').",
+        explanationBn: "মূল বাক্য 'The girl was weeping bitterly'। 'who lost...' অংশটি Noun-কে বর্ণনা করার কারণে Adjective Clause।"
+      },
+      {
+        id: 11, set: "Set 3", category: "Analysis", title: "Identify Clause",
+        question: "Your father has painted a picture which will be sold at an auction. (Identify the clause)",
+        answer: "Subordinate Adjective Clause: 'which will be sold at an auction'.",
+        explanationBn: "এই clause-টি 'picture' Noun টিকে মডিফাই বা চিহ্নিত করছে।"
+      },
+      {
+        id: 12, set: "Set 3", category: "Joining", title: "Simple Sentence",
+        question: "I went to the market. I had to buy a fish. (Join into a simple sentence)",
+        answer: "I went to the market to buy a fish.",
+        explanationBn: "Infinitive ('to buy') যোগ করে উদ্দেশ্য প্রকাশ করা হয়েছে।"
+      },
+      {
+        id: 13, set: "Set 3", category: "Voice", title: "Voice Change",
+        question: "My brother had broken the window. (Change the voice)",
+        answer: "The window had been broken by my brother.",
+        explanationBn: "Past Perfect Passive: <i>Object + had been + V3 + by + Subject</i>।"
+      },
+      {
+        id: 14, set: "Set 4", category: "Verbs", title: "Correct Verbs",
+        question: "Mother generously ______ (suggest/suggested/may suggest) that Swami ______ (does/may/might) stay at home. It was 9.30 when he ought to ______ (has been/have been/had been) in the school hall, Swami was lying on the bench.",
+        answer: "suggested, might, have been",
+        explanationBn: "• অতীতে ঘটা ঘটনা তাই <b>suggested</b>\n• পরোক্ষ সম্ভাবনায় <b>might</b>\n• Modals-এর পর <b>have been</b>।"
+      },
+      {
+        id: 15, set: "Set 4", category: "Articles & Prepositions", title: "Articles & Prepositions",
+        question: "When I was ______ girl every holiday that I had seemed ideal, my parents took me ______ train or car ______ a place by the sea.",
+        answer: "a, by, to",
+        explanationBn: "• a girl (একজন বালিকাসুলভ বয়সে)\n• by train/car (যানবাহনের মাধ্যমে)\n• to a place (স্থান নির্দেশক)।"
+      },
+      {
+        id: 16, set: "Set 4", category: "Voice", title: "Voice Change",
+        question: "You make a very pretty squirrel track. (Change the voice)",
+        answer: "A very pretty squirrel track is made by you.",
+        explanationBn: "Present Indefinite Passive: <i>Object + is + V3 + by + Subject</i>।"
+      },
+      {
+        id: 17, set: "Set 4", category: "Joining", title: "Simple Sentence",
+        question: "He completed his work. He took rest. (Join into a simple sentence)",
+        answer: "Having completed his work, he took rest.",
+        explanationBn: "Perfect Participle ('Having completed') ব্যবহার করা হয়েছে।"
+      },
+      {
+        id: 18, set: "Set 4", category: "Narration", title: "Indirect Speech",
+        question: "\"What have you written, Sachin?\"",
+        answer: "He asked Sachin what he had written.",
+        explanationBn: "Wh-Question এ reporting verb 'asked' হয় এবং tense পরিবর্তন হয়ে Past Perfect হয়।"
+      },
+      {
+        id: 19, set: "Set 4", category: "Phrasal Verbs", title: "Phrasal Verbs",
+        question: "(i) They started their journey early in the morning.\n(ii) She resembles her mother.\n(iii) Police is investigating the case.\n[List: take after, set out, carried on, look into]",
+        answer: "(i) set out, (ii) takes after, (iii) looking into",
+        explanationBn: "• started journey = set out\n• resembles = takes after\n• investigating = looking into"
+      },
+      {
+        id: 20, set: "Set 5", category: "Verbs", title: "Correct Verbs",
+        question: "A president of Delhi, bound company Mr. Shanker said, he ______ (had accompanied / went / had gone / goes) to ______ (visit / visits / will visit) Vaishno Devi shrine. He ______ (accompanied / was accompanied / is accompanied) by his wife and two children.",
+        answer: "had gone, visit, was accompanied",
+        explanationBn: "• Past Perfect <b>had gone</b>\n• Infinitive <b>to visit</b>\n• Passive Form <b>was accompanied</b>।"
+      },
+      {
+        id: 21, set: "Set 6", category: "Articles & Prepositions", title: "Articles & Prepositions",
+        question: "India beat Pakistan ______ six runs in ______ T20 World Cup 2024 Group A match ______ the Nassau Country International Cricket Stadium in New York.",
+        answer: "by, the, at",
+        explanationBn: "• ব্যবধান বোঝাতে <b>by</b>\n• টুর্নামেন্টের নির্দিষ্ট ম্যাচে <b>the</b>\n• স্টেডিয়ামে <b>at</b>।"
+      },
+      {
+        id: 22, set: "Set 6", category: "Voice", title: "Voice Change",
+        question: "The man was shot last night. (Change the voice)",
+        answer: "Someone shot the man last night.",
+        explanationBn: "Passive এ উহ্য থাকা কর্তা বা subject হিসেবে 'Someone' ধরা হয়েছে।"
+      },
+      {
+        id: 23, set: "Set 6", category: "Degree", title: "Positive Degree",
+        question: "Gandhiji was one of the greatest freedom fighters. (Change into positive degree)",
+        answer: "Very few freedom fighters were as great as Gandhiji.",
+        explanationBn: "<i>Very few + Plural Noun + Plural Verb + as + positive degree + as + Subject</i>।"
+      },
+      {
+        id: 24, set: "Set 6", category: "Transformation", title: "Adjective Form",
+        question: "Sunil replied quickly. (Use the adjective form of 'quickly')",
+        answer: "Sunil made a quick reply.",
+        explanationBn: "'quickly' (Adverb)-এর Adjective রূপ হলো 'quick'।"
+      },
+      {
+        id: 25, set: "Set 7", category: "Verbs", title: "Correct Verbs",
+        question: "One of my friends ______ (injured/was injured/were injured) in a bus accident. I would have ______ (help/helped/helping) him if I ______ (was/were/am) a doctor.",
+        answer: "was injured, helped, were",
+        explanationBn: "• Singular Subject-এ <b>was injured</b>\n• 'would have' এর পর V3 <b>helped</b>\n• কাল্পনিক শর্তে <b>were</b>।"
+      },
+      {
+        id: 26, set: "Set 7", category: "Narration", title: "Imperative Speech",
+        question: "He said to me, \"Let me speak freely\"",
+        answer: "He requested me that he might be allowed to speak freely.",
+        explanationBn: "'Let me' দিয়ে অনুরোধ বোঝালে 'might be allowed to' ব্যবহৃত হয়।"
+      },
+      {
+        id: 27, set: "Set 7", category: "Degree", title: "Positive Degree",
+        question: "Everest is the highest peak in the world. (Use positive degree)",
+        answer: "No other peak in the world is as high as Everest.",
+        explanationBn: "<i>No other peak... is as high as Everest</i>।"
+      },
+      {
+        id: 28, set: "Set 7", category: "Joining", title: "Neither - Nor",
+        question: "I do not like tea. I do not like coffee. (Joining using 'Neither - Nor')",
+        answer: "I like neither tea nor coffee.",
+        explanationBn: "দুটি না-বোধক বাক্য সংযুক্ত করার সহজ নিয়ম।"
+      },
+      {
+        id: 29, set: "Set 8", category: "Verbs", title: "Passage Verbs",
+        question: "APJ Abdul Kalam ______ (had / had been / was) elected the president of India. He ______ (was defeated / had defeated / defeated) L. Sahgal by a small margin. He ______ (was born / has born / had born) in Tamilnadu.",
+        answer: "was, defeated, was born",
+        explanationBn: "• Passive <b>was</b> elected\n• Active <b>defeated</b>\n• জন্মগ্রহণে <b>was born</b>।"
+      }
+    ];
+
+    // ==========================================
+    // APP STATE & INTERACTION ENGINE
+    // ==========================================
+    let activeCategory = "ALL";
+    let activeSet = "ALL";
+    let searchQuery = "";
+    let completedQuestions = new Set(JSON.parse(localStorage.getItem('completed_questions') || '[]'));
+
+    // PWA Manifest Inject
+    const manifestData = {
+      name: "Madhyamik English Grammar Engine",
+      short_name: "Grammar Master",
+      start_url: ".",
+      display: "standalone",
+      background_color: "#0f172a",
+      theme_color: "#1e293b",
+      icons: [{
+        src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>",
+        sizes: "192x192 512x512",
+        type: "image/svg+xml"
+      }]
+    };
+    const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/json' });
+    document.getElementById('manifest-placeholder').setAttribute('href', URL.createObjectURL(manifestBlob));
+
+    // Drawer Menu Logic
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const menuBackdrop = document.getElementById('menu-backdrop');
+
+    function openDrawer() {
+      sidebarMenu.classList.remove('-translate-x-full');
+      menuBackdrop.classList.remove('hidden');
+    }
+
+    function closeDrawer() {
+      sidebarMenu.classList.add('-translate-x-full');
+      menuBackdrop.classList.add('hidden');
+    }
+
+    menuToggleBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    menuBackdrop.addEventListener('click', closeDrawer);
+
+    // Filters Setup
+    function initFilters() {
+      const categories = ["ALL", ...new Set(grammarData.map(d => d.category))];
+      const catContainer = document.getElementById('category-filters');
+      catContainer.innerHTML = categories.map(cat => `
+        <button onclick="setCategory('${cat}')" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium transition ${activeCategory === cat ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-700/50 hover:text-slate-200'}">
+          ${cat === 'ALL' ? '📌 সকল বিষয়' : cat}
+        </button>
+      `).join('');
+
+      const sets = ["ALL", ...new Set(grammarData.map(d => d.set))];
+      const setContainer = document.getElementById('set-filters');
+      setContainer.innerHTML = sets.map(s => `
+        <button onclick="setSet('${s}')" class="px-2 py-1.5 rounded-xl text-xs font-medium transition text-center border ${activeSet === s ? 'bg-blue-600 border-blue-500 text-white shadow-md' : 'bg-slate-900/60 border-slate-700/50 text-slate-300 hover:border-blue-500'}">
+          ${s === 'ALL' ? 'সব সেট' : s}
+        </button>
+      `).join('');
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      initFilters();
+      renderQuestions();
+      if (window.innerWidth < 1024) closeDrawer();
+    }
+
+    function setSet(s) {
+      activeSet = s;
+      initFilters();
+      renderQuestions();
+      if (window.innerWidth < 1024) closeDrawer();
+    }
+
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase();
+      renderQuestions();
+    });
+
+    document.getElementById('reset-all-btn').addEventListener('click', () => {
+      activeCategory = "ALL";
+      activeSet = "ALL";
+      searchQuery = "";
+      document.getElementById('search-input').value = "";
+      initFilters();
+      renderQuestions();
+    });
+
+    function updateProgress() {
+      const total = grammarData.length;
+      const count = completedQuestions.size;
+      document.getElementById('progress-text').innerText = `${count} / ${total}`;
+      localStorage.setItem('completed_questions', JSON.stringify([...completedQuestions]));
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questions-container');
+      
+      const filtered = grammarData.filter(item => {
+        const matchesCategory = activeCategory === "ALL" || item.category === activeCategory;
+        const matchesSet = activeSet === "ALL" || item.set === activeSet;
+        const matchesSearch = item.question.toLowerCase().includes(searchQuery) ||
+                              item.title.toLowerCase().includes(searchQuery) ||
+                              item.category.toLowerCase().includes(searchQuery);
+        return matchesCategory && matchesSet && matchesSearch;
+      });
+
+      document.getElementById('active-filter-label').innerText = 
+        `দেখাচ্ছে: ${filtered.length} টি প্রশ্ন (${activeCategory !== 'ALL' ? activeCategory : 'সকল বিষয়'})`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 text-center bg-slate-800/30 rounded-2xl border border-slate-700/40">
+            <span class="text-3xl">🔍</span>
+            <p class="mt-2 text-xs text-slate-400">কোনো প্রশ্ন পাওয়া যায়নি!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item) => {
+        const isDone = completedQuestions.has(item.id);
+        return `
+          <div class="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/70 glass shadow-md transition hover:border-slate-600 relative">
+            
+            <div class="flex items-center justify-between mb-3 gap-2 flex-wrap">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                  ${item.set}
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  ${item.category}
+                </span>
+              </div>
+              
+              <button onclick="toggleDone(${item.id})" class="text-xs font-medium px-2.5 py-1 rounded-xl transition flex items-center gap-1 ${isDone ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-slate-700/50 text-slate-400 hover:bg-slate-700'}">
+                ${isDone ? '✓ অনুশীলিত' : '○ চিহ্নিত করুন'}
+              </button>
+            </div>
+
+            <h3 class="text-base font-semibold text-white mb-2">${item.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-mono bg-slate-900/80 p-3 rounded-xl border border-slate-700/50 whitespace-pre-line mb-4">
+              ${item.question}
+            </p>
+
+            <div class="flex items-center gap-3 pt-2 border-t border-slate-700/50">
+              <button onclick="toggleAnswer(${item.id})" class="px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-semibold transition shadow-md flex items-center gap-2">
+                <span>💡</span> উত্তর ও বাংলায় ব্যাখ্যা দেখুন
+              </button>
+            </div>
+
+            <div id="answer-box-${item.id}" class="hidden mt-4 p-4 rounded-xl bg-slate-950/90 border border-blue-500/40 space-y-3 transition-all duration-300">
+              <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                <span>✔</span> সঠিক উত্তর:
+              </div>
+              <div class="text-xs sm:text-sm font-semibold text-emerald-200 bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30 font-mono whitespace-pre-line">
+                ${item.answer}
+              </div>
+
+              <div class="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider pt-1">
+                <span>📘</span> বিস্তারিত ব্যাখ্যা (Bengali Rule):
+              </div>
+              <div class="text-xs text-slate-300 leading-relaxed bg-blue-950/20 p-3 rounded-lg border border-blue-500/20 whitespace-pre-line">
+                ${item.explanationBn}
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      updateProgress();
+    }
+
+    function toggleAnswer(id) {
+      const box = document.getElementById(`answer-box-${id}`);
+      if (box) box.classList.toggle('hidden');
+    }
+
+    function toggleDone(id) {
+      if (completedQuestions.has(id)) {
+        completedQuestions.delete(id);
+      } else {
+        completedQuestions.add(id);
+      }
+      renderQuestions();
+    }
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    let isDark = true;
+
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIcon.innerText = '🌙';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIcon.innerText = '☀️';
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initFilters();
+      renderQuestions();
+    });
+  </script>
+</body>
+</html>
