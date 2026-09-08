@@ -3,469 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সম্পূর্ণ ইংরেজি গ্রামার কুইজ</title>
+    <title>সম্পূর্ণ ইংরেজি গ্রামার - সব প্রশ্ন</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background: #f0ebe5;
-            min-height: 100vh;
-            padding: 15px;
-        }
-        .app {
-            max-width: 950px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 28px;
-            padding: 20px 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
-        .menu-bar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            background: #e8e0d8;
-            padding: 10px 16px;
-            border-radius: 50px;
-            margin-bottom: 25px;
-        }
-        .menu-bar .brand {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #2d1f14;
-            margin-right: auto;
-        }
-        .menu-btn {
-            background: #d5c9bd;
-            border: none;
-            font-size: 1.5rem;
-            padding: 4px 14px;
-            border-radius: 30px;
-            cursor: pointer;
-            color: #2d1f14;
-            font-weight: bold;
-        }
-        .menu-btn:hover {
-            background: #c4b5a6;
-        }
-        .menu-dropdown {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            background: white;
-            padding: 10px 14px;
-            border-radius: 40px;
-            width: 100%;
-            margin-top: 4px;
-        }
-        .menu-dropdown button {
-            background: #ede7e0;
-            border: none;
-            padding: 5px 14px;
-            border-radius: 30px;
-            font-weight: 500;
-            color: #2d1f14;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
-        .menu-dropdown button:hover {
-            background: #d5c9bd;
-        }
-        .menu-dropdown button.active-set {
-            background: #8b7a6a;
-            color: white;
-        }
-        .set-card {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-        .set-card.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .question-block {
-            background: #faf8f5;
-            border-radius: 20px;
-            padding: 16px 18px;
-            margin-bottom: 18px;
-            border: 1px solid #e0d6cc;
-        }
-        .question-text {
-            font-size: 0.98rem;
-            font-weight: 500;
-            color: #1f140e;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-        .options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 12px;
-            margin: 8px 0 4px;
-        }
-        .option-btn {
-            background: white;
-            border: 2px solid #d5c9bd;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-weight: 500;
-            color: #2d1f14;
-            cursor: pointer;
-            font-size: 0.88rem;
-            transition: 0.15s;
-        }
-        .option-btn:hover {
-            background: #ede7e0;
-            border-color: #b8a491;
-        }
-        .option-btn.correct {
-            background: #c8e6c9;
-            border-color: #2e7d32;
-            color: #1b5e20;
-        }
-        .option-btn.wrong {
-            background: #ffcdd2;
-            border-color: #c62828;
-            color: #b71c1c;
-        }
-        .explanation {
-            background: #f1ece6;
-            border-radius: 16px;
-            padding: 12px 18px;
-            margin: 12px 0 4px;
-            font-size: 0.93rem;
-            border-left: 5px solid #8b7a6a;
-            color: #1f180f;
-            line-height: 1.6;
-        }
-        .explanation strong {
-            color: #4a3728;
-        }
-        .badge-set {
-            display: inline-block;
-            background: #cdbeb1;
-            color: #241b13;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 2px 14px;
-            border-radius: 30px;
-            margin-bottom: 4px;
-        }
-        .footer-note {
-            margin-top: 22px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #756352;
-            border-top: 1px solid #e0d5ca;
-            padding-top: 16px;
-        }
-        .q-count {
-            color: #7a6856;
-            font-size: 0.8rem;
-        }
-        .set-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-        @media (max-width: 600px) {
-            .app { padding: 12px 14px; }
-            .menu-bar { padding: 8px 12px; }
-            .question-text { font-size: 0.9rem; }
-            .option-btn { font-size: 0.8rem; padding: 5px 12px; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: #f0ebe5; min-height: 100vh; padding: 15px; }
+        .app { max-width: 950px; margin: 0 auto; background: white; border-radius: 28px; padding: 20px 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        .menu-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; background: #e8e0d8; padding: 10px 16px; border-radius: 50px; margin-bottom: 25px; }
+        .menu-bar .brand { font-weight: 700; font-size: 1.1rem; color: #2d1f14; margin-right: auto; }
+        .menu-btn { background: #d5c9bd; border: none; font-size: 1.5rem; padding: 4px 14px; border-radius: 30px; cursor: pointer; color: #2d1f14; font-weight: bold; }
+        .menu-btn:hover { background: #c4b5a6; }
+        .menu-dropdown { display: flex; flex-wrap: wrap; gap: 4px; background: white; padding: 8px 10px; border-radius: 40px; width: 100%; margin-top: 4px; max-height: 300px; overflow-y: auto; }
+        .menu-dropdown button { background: #ede7e0; border: none; padding: 4px 10px; border-radius: 30px; font-weight: 500; color: #2d1f14; cursor: pointer; font-size: 0.7rem; transition: 0.2s; white-space: nowrap; }
+        .menu-dropdown button:hover { background: #d5c9bd; }
+        .menu-dropdown button.active-set { background: #8b7a6a; color: white; }
+        .set-card { display: none; animation: fadeIn 0.3s ease; }
+        .set-card.active { display: block; }
+        @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+        .question-block { background: #faf8f5; border-radius: 20px; padding: 16px 18px; margin-bottom: 16px; border: 1px solid #e0d6cc; }
+        .question-text { font-size: 0.92rem; font-weight: 500; color: #1f140e; line-height: 1.7; margin-bottom: 10px; }
+        .question-text .blank { color: #c0392b; font-weight: 700; text-decoration: underline; text-decoration-color: #c0392b; text-underline-offset: 3px; }
+        .answer-area { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0 4px; }
+        .answer-input { padding: 8px 16px; border: 2px solid #d5c9bd; border-radius: 30px; font-size: 0.9rem; min-width: 200px; flex: 1; outline: none; transition: 0.2s; background: white; }
+        .answer-input:focus { border-color: #8b7a6a; box-shadow: 0 0 0 3px rgba(139, 122, 106, 0.2); }
+        .answer-input.correct { border-color: #2e7d32; background: #e8f5e9; }
+        .answer-input.wrong { border-color: #c62828; background: #ffebee; }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .check-btn { background: #8b7a6a; color: white; border: none; padding: 8px 24px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+        .check-btn:hover { background: #6d5e4f; transform: scale(0.97); }
+        .show-answer-btn { background: #d5c9bd; color: #2d1f14; border: none; padding: 8px 18px; border-radius: 30px; font-weight: 500; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+        .show-answer-btn:hover { background: #c4b5a6; }
+        .explanation { background: #f1ece6; border-radius: 16px; padding: 12px 18px; margin: 12px 0 2px; font-size: 0.9rem; border-left: 5px solid #8b7a6a; color: #1f180f; line-height: 1.6; display: none; }
+        .explanation.show { display: block; }
+        .explanation strong { color: #4a3728; }
+        .explanation .correct-answer { color: #2e7d32; font-weight: 700; }
+        .badge-set { display: inline-block; background: #cdbeb1; color: #241b13; font-size: 0.65rem; font-weight: 600; padding: 2px 12px; border-radius: 30px; margin-bottom: 4px; }
+        .footer-note { margin-top: 22px; text-align: center; font-size: 0.8rem; color: #756352; border-top: 1px solid #e0d5ca; padding-top: 14px; }
+        .q-count { color: #7a6856; font-size: 0.75rem; }
+        .set-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+        .total-questions { background: #8b7a6a; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.65rem; }
+        .progress-bar { background: #e8e0d8; height: 4px; border-radius: 4px; margin: 10px 0; overflow: hidden; }
+        .progress-fill { background: #8b7a6a; height: 100%; transition: width 0.3s; width: 0%; }
+        .status-text { font-size: 0.8rem; color: #6d5e4f; margin-top: 4px; }
+        .result-badge { display: inline-block; padding: 2px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .result-badge.correct { background: #c8e6c9; color: #1b5e20; }
+        .result-badge.wrong { background: #ffcdd2; color: #b71c1c; }
+        @media (max-width: 600px) { .app { padding: 10px 12px; } .menu-bar { padding: 6px 10px; } .question-text { font-size: 0.85rem; } .answer-input { font-size: 0.8rem; min-width: 120px; padding: 6px 12px; } .check-btn, .show-answer-btn { font-size: 0.75rem; padding: 6px 14px; } }
     </style>
 </head>
 <body>
 <div class="app" id="app">
     <div class="menu-bar">
-        <span class="brand">📘 গ্রামার কুইজ</span>
+        <span class="brand">📝 সম্পূর্ণ গ্রামার কুইজ</span>
+        <span class="total-questions" id="totalQ">০টি</span>
         <button class="menu-btn" id="menuToggle">☰</button>
         <div class="menu-dropdown" id="menuDropdown" style="display: none;"></div>
     </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="set-container" id="setContainer"></div>
-    <div class="footer-note">✅ উত্তর ক্লিক করলে ব্যাখ্যা দেখাবে · মেনু বোতামে সেট বদলান</div>
+    <div class="footer-note">✅ উত্তর টাইপ করুন → চেক করুন → ব্যাখ্যা দেখুন · মেনুতে সেট বদলান</div>
 </div>
 
 <script>
 (function() {
     // ============================================================
-    //  ALL QUESTIONS - সম্পূর্ণ ডেটা
+    //  COMPLETE DATA - ALL QUESTIONS FROM ALL UPLOADS
     // ============================================================
     const setsData = [
-        // ----- সেট ১ (Images 1 & 2) -----
+        // ====== SET 1: Articles & Prepositions (First Batch) ======
         {
-            name: "সেট ১",
+            name: "১. Article-Preposition-১",
             questions: [
-                { q: 'Today we are ______ (confined/confining/being confining) in a room as it ______ (is/has been/was) raining since morning and we are busy ______ (playing/played/having played) ludo.',
-                  opts: [['confined', 'has been', 'playing'], ['confining', 'is', 'played'], ['being confining', 'was', 'having played']], ans: 0,
-                  exp: '✅ “confined” (বন্দী) + “has been raining” (সকাল থেকে) + “playing” (ব্যস্ত) – বর্তমান নিখুঁত ও চলমান কাজ।' },
-                { q: 'Most people are fond ______ mystery stories. They find ______ extra pleasure ______ trying to solve the mystery.',
-                  opts: [['of', 'an', 'in'], ['for', 'the', 'at'], ['with', 'a', 'on']], ans: 0,
-                  exp: '✅ “fond of” (পছন্দ), “an extra pleasure” (একটি বাড়তি আনন্দ), “in trying” (চেষ্টায়)।' },
-                { q: '"This is one of the oldest houses of our locality." — Change into comparative degree.',
-                  opts: ['This is older than most other houses in our locality.', 'This is oldest than any other house.', 'This house is old than others.'], ans: 0,
-                  exp: '✅ “one of the oldest” → “older than most other” – শ্রেষ্ঠত্ব তুলনামূলক।' },
-                { q: '"Arijit Singh is a famous singer. He can sing different kinds of songs." — Change into simple sentence.',
-                  opts: ['Arijit Singh is a famous singer and can sing different songs.', 'Arijit Singh being a famous singer can sing different songs.', 'Being a famous singer, Arijit Singh can sing different kinds of songs.'], ans: 2,
-                  exp: '✅ “Being a famous singer” – সরল বাক্যে রূপান্তর (participle)।' },
-                { q: 'Nisha said to Romita, "Have you completed your task?" — Change narration.',
-                  opts: ['Nisha asked Romita if she had completed her task.', 'Nisha said Romita if she completed task.', 'Nisha told Romita that have you completed?'], ans: 0,
-                  exp: '✅ Reported speech: “asked if” + past perfect (had completed)।' },
-                { q: 'Tanima is in search of a job. — Replace with phrasal verb.',
-                  opts: ['look for', 'set out', 'make out'], ans: 0,
-                  exp: '✅ “in search of” → “look for” – খোঁজ করা।' },
-                { q: 'Ankan understands what I am saying. — Replace with phrasal verb.',
-                  opts: ['make out', 'set in', 'look for'], ans: 0,
-                  exp: '✅ “understands” → “make out” – বুঝতে পারা।' },
-                { q: 'Evening starts early now. — Replace with phrasal verb.',
-                  opts: ['set in', 'set out', 'look for'], ans: 0,
-                  exp: '✅ “starts” → “set in” – শুরু হওয়া (ঋতু/সময়)।' }
+                { q: 'Most people are fond ______ mystery stories. They find ______ extra pleasure ______ trying to solve the mystery.', blanks: ['of', 'an', 'in'], exp: '✅ “fond of” + “an extra pleasure” + “in trying” – সঠিক preposition ও article।' },
+                { q: '______ July 2023, Dinesh and Tarak Shinde, both Police constables ______ the Maharashtra Police force, achieved ______ commendable feat of nabbing the dreaded robber Sanga from his hideout ______ Latur.', blanks: ['In', 'of', 'a', 'in'], exp: '✅ “In July”, “of the Police force”, “a commendable feat”, “in Latur” – সঠিক।' },
+                { q: 'When I was ______ girl every holiday that I had seemed ideal, my parents took me ______ train or car ______ a place by the sea.', blanks: ['a', 'by', 'to'], exp: '✅ “a girl”, “by train/car”, “to a place” – সঠিক article ও preposition।' },
+                { q: 'India beat Pakistan ______ six runs in ______ T20 World Cup 2024 Group A match ______ the Nassau County International Cricket Stadium in New York.', blanks: ['by', 'the', 'at'], exp: '✅ “by six runs”, “the T20 World Cup”, “at the stadium” – সঠিক।' },
+                { q: 'Man is the architect ______ his own fate. If he makes ______ proper division of his time and does his duties accordingly, he is sure ______ improve and prosper ______ life.', blanks: ['of', 'a', 'to', 'in'], exp: '✅ “architect of”, “a proper division”, “sure to improve”, “prosper in life” – সঠিক preposition।' },
+                { q: '______ October 12, 1492 Christopher Columbus first saw ______ new world, nine weeks ______ leaving Spain.', blanks: ['On', 'the', 'after'], exp: '✅ “On October 12”, “the new world”, “after leaving” – সঠিক।' },
+                { q: 'All ______ girls ______ this village have promised to fight ______ the curse ______ child marriage.', blanks: ['the', 'of', 'against', 'of'], exp: '✅ “All the girls”, “of this village”, “fight against”, “curse of” – সঠিক।' },
+                { q: 'What is ______ most dreadful menace facing India today is the rise ______ Communalism. We all should fight ______ it collectively.', blanks: ['the', 'of', 'against'], exp: '✅ “the most dreadful”, “rise of Communalism”, “fight against” – সঠিক।' },
+                { q: 'I take this opportunity ______ thank you from ______ bottom of my heart ______ all that you have done.', blanks: ['to', 'the', 'for'], exp: '✅ “opportunity to”, “from the bottom”, “for all that” – সঠিক।' },
+                { q: '______ Nobel Prize ______ Literature for 2025 is awarded ______ the Hungarian author László Krasznahorkai.', blanks: ['The', 'for', 'to'], exp: '✅ “The Nobel Prize”, “for Literature”, “awarded to” – সঠিক।' }
             ]
         },
-        // ----- সেট ২ (Image 3) -----
+        // ====== SET 2: Articles & Prepositions (Second Batch) ======
         {
-            name: "সেট ২",
+            name: "২. Article-Preposition-২",
             questions: [
-                { q: '______ July 2023, Dinesh and Tarak Shinde, both Police constables ______ the Maharashtra Police force, achieved ______ commendable feat of nabbing the dreaded robber Sanga from his hideout ______ Latur.',
-                  opts: [['In', 'of', 'a', 'in'], ['On', 'from', 'the', 'at'], ['At', 'with', 'an', 'near']], ans: 0,
-                  exp: '✅ “In July”, “of the Police force”, “a commendable feat”, “in Latur” – সঠিক preposition ও article।' }
+                { q: 'You go out ______ cool fresh morning to see if all is right ______ the zoo.', blanks: ['on a', 'at'], exp: '✅ “on a cool fresh morning”, “at the zoo” – সঠিক।' },
+                { q: 'Last year we visited Puri ______ summer we stayed in a hotel ______ the river. Though ______ hotel was a bit expensive it was very nice.', blanks: ['in', 'near', 'the'], exp: '✅ “in summer”, “near the river”, “the hotel” – সঠিক।' },
+                { q: 'When I was old enough ______ ask questions, I asked my father about ______ relevance ______ prayer.', blanks: ['to', 'the', 'of'], exp: '✅ “enough to ask”, “the relevance”, “of prayer” – সঠিক।' },
+                { q: 'Water is crucial ______ all components ______ life which makes it ______ necessary resource for day-to-day activities.', blanks: ['for', 'of', 'a'], exp: '✅ “crucial for”, “components of life”, “a necessary resource” – সঠিক।' },
+                { q: 'It is always spoken as ______ reproach ______ cats that they are more fond ______ their home than the people in it.', blanks: ['a', 'against', 'of'], exp: '✅ “a reproach”, “against cats”, “fond of” – সঠিক।' },
+                { q: '______ boy from the green chair stood up ______ ask me ______ question.', blanks: ['The', 'to', 'a'], exp: '✅ “The boy”, “to ask”, “a question” – সঠিক।' },
+                { q: 'We had no control ______ such ______ situation. So the result was contrary ______ our expectation.', blanks: ['over', 'a', 'to'], exp: '✅ “control over”, “such a situation”, “contrary to” – সঠিক।' },
+                { q: 'Raja John Vurputoor Chari, ______ Indian-American US Air Force Colonel, is among 18 astronauts, who have been selected ______ NASA for its man mission ______ the moon in 2024.', blanks: ['an', 'by', 'to'], exp: '✅ “an Indian-American”, “selected by NASA”, “mission to the moon” – সঠিক।' },
+                { q: 'According to Swami Vivekananda, education is ______ manifestation ______ perfection already ______ man.', blanks: ['the', 'of', 'in'], exp: '✅ “the manifestation”, “of perfection”, “in man” – সঠিক।' },
+                { q: 'Father snatched ______ letter away ______ Swami and tore it ______ pieces.', blanks: ['the', 'from', 'into'], exp: '✅ “the letter”, “away from Swami”, “into pieces” – সঠিক।' }
             ]
         },
-        // ----- সেট ৩ (Image 4) -----
+        // ====== SET 3: Verb Forms (First Batch) ======
         {
-            name: "সেট ৩",
+            name: "৩. Verb Forms-১",
             questions: [
-                { q: '"It was raining hard. Abir went to school." — Turn into compound sentence.',
-                  opts: ['It was raining hard, but Abir went to school.', 'It raining hard Abir went.', 'Abir went to school though raining.'], ans: 0,
-                  exp: '✅ Compound: “but” দিয়ে যুক্ত – দুটি স্বাধীন clause।' },
-                { q: '"The Nile is the longest river in Africa. It flows through many countries." — Change into complex sentence.',
-                  opts: ['The Nile, which is the longest river in Africa, flows through many countries.', 'The Nile is longest and flows.', 'The Nile flowing through many countries is longest.'], ans: 0,
-                  exp: '✅ Complex: “which is the longest river in Africa” – relative clause।' },
-                { q: '"The girl who lost her umbrella in the storm was weeping bitterly." — Analyze the sentence.',
-                  opts: ['Main: The girl was weeping bitterly; Subordinate: who lost her umbrella in the storm', 'Main: girl lost umbrella; Sub: storm', 'Simple sentence'], ans: 0,
-                  exp: '✅ Main clause: “The girl was weeping bitterly”; Subordinate: “who lost her umbrella in the storm” (adjective clause)।' },
-                { q: '"Your father has painted a picture which will be sold at an auction." — Identify the clause.',
-                  opts: ['which will be sold at an auction – Adjective clause', 'has painted – verb clause', 'picture – noun clause'], ans: 0,
-                  exp: '✅ “which will be sold at an auction” – এটি adjective clause, কারণ picture-কে modify করছে।' },
-                { q: '"I went to the market. I had to buy a fish." — Join into a simple sentence.',
-                  opts: ['I went to the market to buy a fish.', 'I went market for fish.', 'To buy fish I went.'], ans: 0,
-                  exp: '✅ Simple: infinitive “to buy” দিয়ে যুক্ত।' },
-                { q: 'My brother had broken the window. — Change the voice.',
-                  opts: ['The window had been broken by my brother.', 'The window was broken by my brother.', 'The window had broken.'], ans: 0,
-                  exp: '✅ Passive: “had been broken” – past perfect passive।' },
-                { q: '"Cannons boomed at the battlefield." — Identify figure of speech.',
-                  opts: ['Onomatopoeia', 'Simile', 'Metaphor'], ans: 0,
-                  exp: '✅ “boomed” – শব্দ অনুকরণ (Onomatopoeia)।' },
-                { q: '"The water mirrors a still sky." — Identify figure of speech.',
-                  opts: ['Metaphor', 'Personification', 'Simile'], ans: 0,
-                  exp: '✅ “mirrors” – রূপক (Metaphor), জল আকাশকে প্রতিফলিত করে।' },
-                { q: '"I came to bury Caesar, not to praise him." — Identify figure of speech.',
-                  opts: ['Antithesis', 'Oxymoron', 'Hyperbole'], ans: 0,
-                  exp: '✅ “bury” ও “praise” – বিপরীত ধারণা (Antithesis)।' },
-                { q: '"The thirsty earth drank the water." — Identify figure of speech.',
-                  opts: ['Personification', 'Metaphor', 'Simile'], ans: 0,
-                  exp: '✅ “thirsty earth drank” – প্রকৃতিকে মানবীয় গুণ দেওয়া (Personification)।' }
+                { q: 'Today we are ______ (confine) in a room as it ______ (rain) since morning and we are busy ______ (play) ludo.', blanks: ['confined', 'has been raining', 'playing'], exp: '✅ “confined” (বন্দী) + “has been raining” (সকাল থেকে) + “playing” (ব্যস্ত) – বর্তমান নিখুঁত ও চলমান কাজ।' },
+                { q: 'Mother generously ______ (suggest) that Swami ______ (may) stay at home. It was 9.30 when he ought to ______ (be) in the school hall.', blanks: ['suggested', 'might', 'have been'], exp: '✅ অতীত “suggested”, “might” (সম্ভাবনা), “ought to have been” – উচিত ছিল।' },
+                { q: 'Mr. Shanker said, he ______ (go) to ______ (visit) Vaishno Devi shrine. He ______ (accompany) by his wife and two children.', blanks: ['had gone', 'visit', 'was accompanied'], exp: '✅ “had gone” (পূর্বে গিয়েছিলেন), “to visit”, “was accompanied” (প্যাসিভ) – সাথে ছিলেন।' },
+                { q: 'One of my friends ______ (injure) in a bus accident. I would have ______ (help) him if I ______ (be) a doctor.', blanks: ['was injured', 'helped', 'were'], exp: '✅ “one of” + singular → was injured; conditional: would have + V3; “if I were” (subjunctive)।' },
+                { q: 'The train ______ (leave) the station before we ______ (reach). But we ______ (make) no comment to our guide.', blanks: ['had left', 'reached', 'made'], exp: '✅ “had left” (পূর্বে) + simple past “reached” + “made” (অতীত)।' },
+                { q: '"Here comes someone ______ (run)", said the hermit. The king ______ (turn) round and saw a bearded man. Blood ______ (flow) from his stomach.', blanks: ['running', 'turned', 'was flowing'], exp: '✅ “running” (participle), “turned” (অতীত), “was flowing” (চলছিল) – ক্রমবাচক।' },
+                { q: 'Swami Vivekananda ______ (travel) on foot from place to place ______ (spread) noble thought to thousands of people to ______ (awaken) their souls.', blanks: ['travelled', 'spreading', 'awaken'], exp: '✅ past “travelled”, participle “spreading”, infinitive “to awaken” – উদ্দেশ্য।' },
+                { q: 'Eight more bodies ______ (find) on Monday as flood waters started receding, ______ (take) the toll to 36. Many more ______ (be) still missing.', blanks: ['were found', 'taking', 'are'], exp: '✅ passive “were found”, “taking” (participle), “are still missing” (বর্তমান অবস্থা)।' },
+                { q: 'The train ______ (leave) before we ______ (reach).', blanks: ['had left', 'reached'], exp: '✅ “had left” (পূর্বে) + “reached” (সাধারণ অতীত) – past perfect + simple past।' },
+                { q: 'It ______ (rain) since 5 O\'clock.', blanks: ['has been raining'], exp: '✅ “has been raining” – present perfect continuous (since 5 O\'clock)।' }
             ]
         },
-        // ----- সেট ৪ (Image 5) -----
+        // ====== SET 4: Verb Forms (Second Batch) ======
         {
-            name: "সেট ৪",
+            name: "৪. Verb Forms-২",
             questions: [
-                { q: 'Mother generously ______ (suggest/suggested/may suggest) that Swami ______ (does/may/might) stay at home. It was 9.30 when he ought to ______ (has been/have been/had been) in the school hall.',
-                  opts: [['suggested', 'might', 'have been'], ['suggest', 'may', 'has been'], ['may suggest', 'does', 'had been']], ans: 0,
-                  exp: '✅ অতীত “suggested”, “might” (সম্ভাবনা), “ought to have been” – উচিত ছিল।' },
-                { q: 'When I was ______ girl every holiday that I had seemed ideal, my parents took me ______ train or car ______ a place by the sea.',
-                  opts: [['a', 'by', 'to'], ['the', 'on', 'at'], ['an', 'with', 'for']], ans: 0,
-                  exp: '✅ “a girl”, “by train/car”, “to a place” – সঠিক article ও preposition।' },
-                { q: 'You make a very pretty squirrel track. — Change the voice.',
-                  opts: ['A very pretty squirrel track is made by you.', 'A very pretty track made.', 'You are made a track.'], ans: 0,
-                  exp: '✅ Passive: object “track” → “is made by you”' },
-                { q: '"He completed his work. He took rest." — Join into a simple sentence.',
-                  opts: ['Having completed his work, he took rest.', 'He completed work and took rest.', 'After complete work rest.'], ans: 0,
-                  exp: '✅ “Having completed” – participle দিয়ে সরল বাক্য।' },
-                { q: '"What have you written, Sachin?" — Change into indirect speech.',
-                  opts: ['He asked Sachin what he had written.', 'He asked Sachin what have you written.', 'He told Sachin what he wrote.'], ans: 0,
-                  exp: '✅ “asked + what + had written” – indirect question।' },
-                { q: 'They started their journey early in the morning. — Replace with phrasal verb.',
-                  opts: ['set out', 'take after', 'look into'], ans: 0,
-                  exp: '✅ “started journey” → “set out” – যাত্রা শুরু করা।' },
-                { q: 'She resembles her mother. — Replace with phrasal verb.',
-                  opts: ['take after', 'set out', 'carried on'], ans: 0,
-                  exp: '✅ “resembles” → “take after” – সদৃশ হওয়া।' },
-                { q: 'Police is investigating the case. — Replace with phrasal verb.',
-                  opts: ['look into', 'set out', 'take after'], ans: 0,
-                  exp: '✅ “investigating” → “look into” – তদন্ত করা।' }
+                { q: 'As the temperature ______ (soar) so high, it ______ (advise) to take cool showers, people ______ (drink) plenty of water.', blanks: ['has been soaring', 'is advised', 'should drink'], exp: '✅ “has been soaring” (চলছে), “is advised” (উপদেশ), “should drink” (উচিত) – সঠিক verb form।' },
+                { q: 'Although the children ______ (love) outdoor games, their parents ______ (consider) their interest as harmful. A child who spends time in outdoor activities ______ (grow) up to be healthy.', blanks: ['love', 'consider', 'grows'], exp: '✅ “children love” (বহুবচন), “parents consider” (বহুবচন), “grows” (সাধারণ সত্য) – সঠিক verb form।' },
+                { q: 'The text book for class X ______ (mean) for the learners of English. At the end of each lesson sufficient exercises ______ (give) to develop language skills. The learners will love ______ (read) the textbook.', blanks: ['is meant', 'have been given', 'to read'], exp: '✅ “is meant” (উদ্দেশ্য), “have been given” (প্যাসিভ), “to read” (infinitive) – সঠিক।' },
+                { q: 'Bread and butter ______ (be) what Ritam usually takes. He preferred to eat biscuits that he ______ (bring) from home. A few minutes after he ______ (see) getting down the street.', blanks: ['is', 'had brought', 'saw'], exp: '✅ “Bread and butter” একক (is), “had brought” (পূর্বে), “saw” (সাধারণ অতীত) – সঠিক।' },
+                { q: 'At least two persons ______ (die) and six ______ (injure) in a train derailment. The drivers overshot the red signal ______ (result) in the derailment.', blanks: ['died', 'were injured', 'resulting'], exp: '✅ “died” (সক্রিয়), “were injured” (প্যাসিভ), “resulting” (participle) – সঠিক।' },
+                { q: 'The Ministry on Friday ______ (advise) Indians ______ (live) in Canada to remain vigilant in view of the activities that ______ (increase) for the last two weeks.', blanks: ['advised', 'living', 'have been increasing'], exp: '✅ অতীত “advised”, “living” (participle), “have been increasing” (গত ২ সপ্তাহ) – সঠিক।' },
+                { q: 'Jupiter was deeply ______ (move) by the mother\'s sorrow. He ______ (think) for a while and said, "The princess may return if she has not ______ (taste) food."', blanks: ['moved', 'thought', 'tasted'], exp: '✅ “was moved” (প্রভাবিত), “thought” (অতীত), “has not tasted” (পারফেক্ট) – সঠিক।' },
+                { q: 'Drones ______ (use) on Monday to ______ (spray) larvicide. This is the first time such a drive ______ (take) inside the factory premises.', blanks: ['were used', 'spray', 'has been taken'], exp: '✅ “were used” (অতীত), “to spray” (infinitive), “has been taken” (present perfect passive) – সঠিক।' },
+                { q: 'I was ______ (excite) to see my uncle. He ______ (come) after a long time. My joy ______ (know) no bound.', blanks: ['excited', 'had come', 'knew'], exp: '✅ “excited” (অবস্থা), “had come” (পূর্বে), “knew” (অতীত) – সঠিক।' },
+                { q: 'One day the Giant ______ (come) back. He ______ (be) to visit his friend and ______ (stay) with him for seven years.', blanks: ['came', 'had been', 'stayed'], exp: '✅ simple past “came”, past perfect “had been”, simple past “stayed” – ক্রম।' }
             ]
         },
-        // ----- সেট ৫ (Image 6) -----
+        // ====== SET 5: Voice Change (All) ======
         {
-            name: "সেট ৫",
+            name: "৫. Voice Change",
             questions: [
-                { q: 'A president of Delhi, bound company Mr. Shanker said, he ______ (had accompanied/went/had gone/goes) to ______ (visit/visits/will visit) Vaishno Devi shrine. He ______ (accompanied/was accompanied/is accompanied) by his wife and two children.',
-                  opts: [['had gone', 'visit', 'was accompanied'], ['had accompanied', 'visits', 'accompanied'], ['goes', 'will visit', 'is accompanied']], ans: 0,
-                  exp: '✅ “had gone” (পূর্বে গিয়েছিলেন), “to visit” (infinitive), “was accompanied” (প্যাসিভ) – সাথে ছিলেন।' },
-                { q: 'India beat Pakistan ______ six runs in ______ T20 World Cup 2024 Group A match ______ the Nassau County International Cricket Stadium in New York.',
-                  opts: [['by', 'the', 'at'], ['with', 'a', 'in'], ['for', 'an', 'on']], ans: 0,
-                  exp: '✅ “by six runs” (ব্যবধানে), “the T20 World Cup” (নির্দিষ্ট), “at the stadium” (স্থানে)।' },
-                { q: 'The man was shot last night. — Change the voice.',
-                  opts: ['Someone shot the man last night.', 'The man shot last night.', 'Shot the man last night.'], ans: 0,
-                  exp: '✅ Active: “Someone shot the man last night.”' },
-                { q: 'Gandhiji was one of the greatest freedom fighters. — Change into positive degree.',
-                  opts: ['Very few freedom fighters were as great as Gandhiji.', 'Gandhiji is great fighter.', 'No other freedom fighter as great.'], ans: 0,
-                  exp: '✅ Positive: “Very few … as great as Gandhiji” – ইতিবাচক তুলনা।' },
-                { q: 'Sunil replied quickly. — Use the adjective form of "quickly".',
-                  opts: ['Sunil gave a quick reply.', 'Sunil quick replied.', 'Sunil reply quick.'], ans: 0,
-                  exp: '✅ “quickly” → “quick” (বিশেষণ) + “gave a quick reply”' },
-                { q: 'My friend visited me yesterday. — Replace with phrasal verb (call on).',
-                  opts: ['called on', 'come after', 'bear away'], ans: 0,
-                  exp: '✅ “visited” → “called on” – দেখা করতে আসা।' },
-                { q: 'The police followed the thief. — Replace with phrasal verb (come after).',
-                  opts: ['came after', 'call on', 'bear away'], ans: 0,
-                  exp: '✅ “followed” → “came after” – অনুসরণ করা।' },
-                { q: 'We have won the match. — Replace with phrasal verb (bear away).',
-                  opts: ['borne away', 'call on', 'come after'], ans: 0,
-                  exp: '✅ “won” → “borne away” – জয়লাভ করা।' }
+                { q: 'My brother had broken the window. → Change the voice.', blanks: ['The window had been broken by my brother.'], exp: '✅ Passive: “had been broken” – past perfect passive।' },
+                { q: 'You make a very pretty squirrel track. → Change the voice.', blanks: ['A very pretty squirrel track is made by you.'], exp: '✅ Passive: “is made by you” – present passive।' },
+                { q: 'The man was shot last night. → Change the voice.', blanks: ['Someone shot the man last night.'], exp: '✅ Active: “Someone shot the man last night.”' },
+                { q: 'He gives away everything for the poor. → Change the voice.', blanks: ['Everything is given away by him for the poor.'], exp: '✅ Passive: “Everything is given away by him”' },
+                { q: 'Sarita knows the solution to this problem. → Change the voice.', blanks: ['The solution to this problem is known to Sarita.'], exp: '✅ Passive: “is known to Sarita” – পরিচিত।' },
+                { q: 'I know the man. → Change the voice.', blanks: ['The man is known to me.'], exp: '✅ Passive: “is known to me” – পরিচিত।' },
+                { q: 'They fought the battle. → Change the voice.', blanks: ['The battle was fought by them.'], exp: '✅ Passive: “The battle was fought by them.”' },
+                { q: 'I organised a blood donation camp. → Change the voice.', blanks: ['A blood donation camp was organised by me.'], exp: '✅ Passive: “was organised by me”' },
+                { q: 'The book was placed upon the table. → Change the voice.', blanks: ['Someone placed the book upon the table.'], exp: '✅ Active: “Someone placed the book upon the table.”' },
+                { q: 'You deserve your Samuel. → Change the voice.', blanks: ['Your Samuel is deserved by you.'], exp: '✅ Passive: “Your Samuel is deserved by you.”' }
             ]
         },
-        // ----- সেট ৬ (Image 7 & more) -----
+        // ====== SET 6: Voice Change (More) ======
         {
-            name: "সেট ৬",
+            name: "৬. Voice Change-২",
             questions: [
-                { q: 'One of my friends ______ (injured/was injured/were injured) in a bus accident. I would have ______ (help/helped/helping) him if I ______ (was/were/am) a doctor.',
-                  opts: [['was injured', 'helped', 'were'], ['injured', 'help', 'was'], ['were injured', 'helping', 'am']], ans: 0,
-                  exp: '✅ “one of” + singular → was injured; conditional: would have + V3; “if I were” (subjunctive)।' },
-                { q: 'Man is the architect ______ his own fate. If he makes ______ proper division of his time and does his duties accordingly, he is sure ______ improve and prosper ______ life.',
-                  opts: [['of', 'a', 'to', 'in'], ['for', 'an', 'at', 'of'], ['with', 'the', 'for', 'on']], ans: 0,
-                  exp: '✅ “architect of”, “a proper division”, “sure to improve”, “prosper in life” – সঠিক preposition।' },
-                { q: 'He said to me, "Let me speak freely" — Change narration.',
-                  opts: ['He told me that he might be allowed to speak freely.', 'He said to me let him speak.', 'He told me that let me speak freely.'], ans: 0,
-                  exp: '✅ “Let me” → “that he might be allowed to” – অনুমতি প্রার্থনা।' },
-                { q: 'Everest is the highest peak in the world. — Use positive degree.',
-                  opts: ['No other peak in the world is as high as Everest.', 'Everest is as high as all peaks.', 'Everest is high peak.'], ans: 0,
-                  exp: '✅ Positive: “No other … as high as Everest” – সর্বোচ্চকে ইতিবাচক তুলনা।' },
-                { q: 'He gives away everything for the poor. — Change voice.',
-                  opts: ['Everything is given away by him for the poor.', 'Everything are given away.', 'He is given away everything.'], ans: 0,
-                  exp: '✅ Passive: object “everything” → “is given away by him”' },
-                { q: 'I do not like tea. I do not like coffee. — Join using "Neither - Nor".',
-                  opts: ['I like neither tea nor coffee.', 'Neither I like tea nor coffee.', 'I neither like tea or coffee.'], ans: 0,
-                  exp: '✅ “neither … nor” – উভয়ই না।' },
-                { q: 'Can we ever forget our childhood days? — Turn into assertive sentence.',
-                  opts: ['We can never forget our childhood days.', 'We cannot forget our childhood days.', 'We ever forget our childhood.'], ans: 0,
-                  exp: '✅ Assertive: “We can never forget our childhood days.”' },
-                { q: 'The child resembles his father. — Replace with phrasal verb (take after).',
-                  opts: ['takes after', 'set up', 'look down upon'], ans: 0,
-                  exp: '✅ “resembles” → “takes after” – সদৃশ হওয়া।' },
-                { q: 'A new university has been built at Cooch Behar. — Replace with phrasal verb (set up).',
-                  opts: ['set up', 'set in', 'take after'], ans: 0,
-                  exp: '✅ “has been built” → “has been set up” – স্থাপন করা।' },
-                { q: 'My mother taught me not to disrespect anyone. — Replace with phrasal verb (look down upon).',
-                  opts: ['look down upon', 'set up', 'set in'], ans: 0,
-                  exp: '✅ “disrespect” → “look down upon” – অবজ্ঞা করা।' }
+                { q: 'The poor man carried a heavy load. → Change the voice.', blanks: ['A heavy load was carried by the poor man.'], exp: '✅ Passive: “A heavy load was carried by the poor man.”' },
+                { q: 'The headmaster gave away the prizes. → Change the voice.', blanks: ['The prizes were given away by the headmaster.'], exp: '✅ Passive: “were given away by the headmaster”' },
+                { q: 'My wallet has been stolen. → Change the voice.', blanks: ['Someone has stolen my wallet.'], exp: '✅ Active: “Someone has stolen my wallet.”' },
+                { q: 'He gave me a camera on my birthday. → Change the voice.', blanks: ['I was given a camera by him on my birthday.'], exp: '✅ Passive: “I was given a camera by him” – অপ্রত্যক্ষ বস্তু কর্তা।' },
+                { q: 'Her behaviour shocked me. → Change the voice.', blanks: ['I was shocked by her behaviour.'], exp: '✅ Passive: “I was shocked by her behaviour.”' },
+                { q: 'Please come here. → Change the voice.', blanks: ['You are requested to come here.'], exp: '✅ Passive of request: “You are requested to come here.”' },
+                { q: 'Who taught you English? → Change the voice.', blanks: ['By whom were you taught English?'], exp: '✅ Passive: “By whom were you taught English?”' },
+                { q: 'He bought a grammar book last month. → Change the voice.', blanks: ['A grammar book was bought by him last month.'], exp: '✅ Passive: “was bought by him”' },
+                { q: 'Can you do this exercise? → Change the voice.', blanks: ['Can this exercise be done by you?'], exp: '✅ Passive: “Can this exercise be done by you?” – modal + passive।' },
+                { q: 'The teacher delivered a lecture. → Change the voice.', blanks: ['A lecture was delivered by the teacher.'], exp: '✅ Passive: “A lecture was delivered … by the teacher”' }
             ]
         },
-        // ----- সেট ৭ (Image 5 - Set 2) -----
+        // ====== SET 7: Narration Change (All) ======
         {
-            name: "সেট ৭",
+            name: "৭. Narration Change",
             questions: [
-                { q: 'The train ______ (left/has left/had left) the station before we ______ (reached/had reached). But we ______ (made/make/makes) no comment to our guide.',
-                  opts: [['had left', 'reached', 'made'], ['left', 'had reached', 'make'], ['has left', 'reached', 'makes']], ans: 0,
-                  exp: '✅ “had left” (পূর্বে) + simple past “reached” + “made” (অতীত)।' },
-                { q: '______ October 12, 1492 Christopher Columbus first saw ______ new world, nine weeks ______ leaving Spain.',
-                  opts: [['On', 'the', 'after'], ['In', 'a', 'from'], ['At', 'an', 'since']], ans: 0,
-                  exp: '✅ তারিখে “On October 12”, “the new world” (নির্দিষ্ট), “after leaving” (পরে)।' },
-                { q: 'The boy said to his friend, "I went to school yesterday." — Change into indirect speech.',
-                  opts: ['The boy told his friend that he had gone to school the previous day.', 'The boy said that I went yesterday.', 'The boy said his friend that he went.'], ans: 0,
-                  exp: '✅ “went” → “had gone”, “yesterday” → “the previous day”' },
-                { q: 'Rajib is the fastest runner in our village. — Change into positive degree.',
-                  opts: ['No other runner in our village is as fast as Rajib.', 'Rajib is faster than all.', 'Rajib is fast runner.'], ans: 0,
-                  exp: '✅ Positive: “No other … as fast as Rajib” – শ্রেষ্ঠত্বকে ইতিবাচক।' },
-                { q: 'Sarita knows the solution to this problem. — Change the voice.',
-                  opts: ['The solution to this problem is known to Sarita.', 'The solution is known by Sarita.', 'Sarita is known the solution.'], ans: 0,
-                  exp: '✅ Passive: “The solution … is known to Sarita” (জানা)।' },
-                { q: 'Avoid bad company. — Replace with phrasal verb (keep away from).',
-                  opts: ['keep away from', 'fall out', 'give away'], ans: 0,
-                  exp: '✅ “Avoid” → “keep away from” – এড়িয়ে চলা।' },
-                { q: 'The siblings quarrelled over their ancestral place. — Replace with phrasal verb (fall out).',
-                  opts: ['fell out', 'give away', 'keep away from'], ans: 0,
-                  exp: '✅ “quarrelled” → “fell out” – ঝগড়া করা।' },
-                { q: 'The secretary distributed the prizes on August 15. — Replace with phrasal verb (give away).',
-                  opts: ['gave away', 'fall out', 'give in'], ans: 0,
-                  exp: '✅ “distributed” → “gave away” – বিতরণ করা।' }
+                { q: 'Nisha said to Romita, "Have you completed your task?" → Change narration.', blanks: ['Nisha asked Romita if she had completed her task.'], exp: '✅ “asked if” + past perfect (had completed) – indirect question।' },
+                { q: '"What have you written, Sachin?" → Change narration.', blanks: ['He asked Sachin what he had written.'], exp: '✅ “asked + what + had written” – indirect question।' },
+                { q: 'He said to me, "Let me speak freely" → Change narration.', blanks: ['He told me that he might be allowed to speak freely.'], exp: '✅ “Let me” → “that he might be allowed to” – অনুমতি প্রার্থনা।' },
+                { q: 'The boy said to his friend, "I went to school yesterday." → Change narration.', blanks: ['The boy told his friend that he had gone to school the previous day.'], exp: '✅ “went” → “had gone”, “yesterday” → “the previous day”' },
+                { q: 'She said to me, "Are you well?" → Change narration.', blanks: ['She asked me if I was well.'], exp: '✅ “asked if” + “I was well” – indirect question।' },
+                { q: 'I said to her, "Where were you?" → Change narration.', blanks: ['I asked her where she had been.'], exp: '✅ “asked + where + had been” – indirect question।' },
+                { q: 'Ajoy said, "Can you come tomorrow?" → Change narration.', blanks: ['Ajoy asked if I could come the next day.'], exp: '✅ “asked if” + “could” + “the next day” – indirect।' },
+                { q: 'Sahnaz said to Soumya, "Please don\'t vex me." → Change narration.', blanks: ['Sahnaz requested Soumya not to vex her.'], exp: '✅ “requested + not to vex” – অনুরোধমূলক।' },
+                { q: 'She said, "I have your secret here inside my little bag." → Change narration.', blanks: ['She said that she had my secret there inside her little bag.'], exp: '✅ “said that she had” + “there” + “her bag” – indirect speech।' },
+                { q: 'The mother said to the boy, "Do not waste time on mobile phone." → Change narration.', blanks: ['The mother advised the boy not to waste time on mobile phone.'], exp: '✅ “advised + not to waste” – উপদেশমূলক।' }
             ]
         },
-        // ----- সেট ৮ (Image 6 - Set 3) -----
+        // ====== SET 8: Degree of Comparison ======
         {
-            name: "সেট ৮",
+            name: "৮. Degree of Comparison",
             questions: [
-                { q: 'All ______ girls ______ this village have promised to fight ______ the curse ______ child marriage.',
-                  opts: [['the', 'of', 'against', 'of'], ['a', 'from', 'with', 'for'], ['an', 'in', 'for', 'on']], ans: 0,
-                  exp: '✅ “All the girls”, “of this village”, “fight against”, “curse of” – সঠিক article ও preposition।' },
-                { q: 'She said to me, "Are you well?" — Change into indirect speech.',
-                  opts: ['She asked me if I was well.', 'She said me are you well.', 'She told me if I am well.'], ans: 0,
-                  exp: '✅ “asked if” + “I was well” – indirect question।' },
-                { q: 'He is too short to reach the fruit of the tree. — Remove "too" and "to".',
-                  opts: ['He is so short that he cannot reach the fruit of the tree.', 'He is short so cannot reach.', 'He is very short to reach.'], ans: 0,
-                  exp: '✅ “too … to” → “so … that … cannot” – জটিল বাক্য।' },
-                { q: 'I know the man. — Change the voice.',
-                  opts: ['The man is known to me.', 'The man is known by me.', 'I am known the man.'], ans: 0,
-                  exp: '✅ Passive: “The man is known to me” – পরিচিত।' },
-                { q: 'He is the tallest boy in the class. — Change the degree.',
-                  opts: ['No other boy in the class is as tall as he.', 'He is taller than all.', 'He is tall boy.'], ans: 0,
-                  exp: '✅ Positive: “No other … as tall as he” – তুলনামূলক থেকে ইতিবাচক।' },
-                { q: 'How could you tolerate such rude words? — Replace with phrasal verb (bear with).',
-                  opts: ['bear with', 'keep on', 'take after'], ans: 0,
-                  exp: '✅ “tolerate” → “bear with” – সহ্য করা।' },
-                { q: 'The girl continued practising the song. — Replace with phrasal verb (keep on).',
-                  opts: ['kept on', 'bear with', 'pass away'], ans: 0,
-                  exp: '✅ “continued” → “kept on” – চালিয়ে যাওয়া।' },
-                { q: 'The boy resembles his father. — Replace with phrasal verb (take after).',
-                  opts: ['takes after', 'keep on', 'pass away'], ans: 0,
-                  exp: '✅ “resembles” → “takes after” – সদৃশ হওয়া।' },
-                { q: 'The great leader died last week. — Replace with phrasal verb (pass away).',
-                  opts: ['passed away', 'take after', 'put away'], ans: 0,
-                  exp: '✅ “died” → “passed away” – মৃত্যুবরণ করা।' }
+                { q: 'This is one of the oldest houses of our locality. → Change into comparative degree.', blanks: ['This is older than most other houses in our locality.'], exp: '✅ “one of the oldest” → “older than most other” – শ্রেষ্ঠত্ব তুলনামূলক।' },
+                { q: 'Gandhiji was one of the greatest freedom fighters. → Change into positive degree.', blanks: ['Very few freedom fighters were as great as Gandhiji.'], exp: '✅ Positive: “Very few … as great as Gandhiji” – ইতিবাচক তুলনা।' },
+                { q: 'Everest is the highest peak in the world. → Use positive degree.', blanks: ['No other peak in the world is as high as Everest.'], exp: '✅ Positive: “No other … as high as Everest” – সর্বোচ্চকে ইতিবাচক তুলনা।' },
+                { q: 'Rajib is the fastest runner in our village. → Turn into positive degree.', blanks: ['No other runner in our village is as fast as Rajib.'], exp: '✅ Positive: “No other … as fast as Rajib” – শ্রেষ্ঠত্বকে ইতিবাচক।' },
+                { q: 'He is the tallest boy in the class. → Change the degree.', blanks: ['No other boy in the class is as tall as he.'], exp: '✅ Positive: “No other … as tall as he” – তুলনামূলক থেকে ইতিবাচক।' },
+                { q: 'She is as fair as a Rose. → Change into comparative degree.', blanks: ['A rose is not fairer than she.'], exp: '✅ Comparative: “A rose is not fairer than she” – ইতিবাচক থেকে তুলনামূলক।' },
+                { q: 'Water is more useful than any other drink. → Change the degree.', blanks: ['No other drink is as useful as water.'], exp: '✅ Positive: “No other drink is as useful as water.”' },
+                { q: 'Samuel was friendlier than most other teachers. → Change the degree.', blanks: ['Very few teachers were as friendly as Samuel.'], exp: '✅ Positive: “Very few teachers … as friendly as Samuel”' },
+                { q: 'No other liquid is so white as milk. → Change the degree.', blanks: ['Milk is whiter than any other liquid.'], exp: '✅ Comparative: “Milk is whiter than any other liquid.”' },
+                { q: 'He was more worthy of praise than anyone else. → Make negative.', blanks: ['No one else was as worthy of praise as he.'], exp: '✅ Negative: “No one else was as worthy of praise as he.”' }
             ]
         },
-        // ----- সেট ৯ (Image 7 - Set 4) -----
+        // ====== SET 9: Sentence Transformation ======
         {
-            name: "সেট ৯",
+            name: "৯. Transformation",
             questions: [
-                { q: 'What is ______ most dreadful menace facing India today is the rise ______ Communalism. We all should fight ______ it collectively.',
-                  opts: [['the', 'of', 'against'], ['a', 'in', 'for'], ['an', 'with', 'on']], ans: 0,
-                  exp: '✅ “the most dreadful” (শ্রেষ্ঠ), “rise of Communalism”, “fight against” – সঠিক article ও preposition।' },
-                { q: '"Here comes someone ______ (Run)", said the hermit. The king ______ (turn) round and saw a bearded man running towards them. His hands pressed against his stomach from which blood ______ (flow).',
-                  opts: [['running', 'turned', 'was flowing'], ['run', 'turn', 'flowed'], ['ran', 'turning', 'flows']], ans: 0,
-                  exp: '✅ “running” (participle), “turned” (অতীত), “was flowing” (চলছিল) – ক্রমবাচক।' },
-                { q: 'They fought the battle. — Change the voice.',
-                  opts: ['The battle was fought by them.', 'The battle fought by them.', 'They were fought battle.'], ans: 0,
-                  exp: '✅ Passive: “The battle was fought by them.”' },
-                { q: 'I said to her, "Where were you?" — Change narration.',
-                  opts: ['I asked her where she had been.', 'I said her where were you.', 'I told her where she was.'], ans: 0,
-                  exp: '✅ “asked + where + had been” – indirect question।' },
-                { q: 'She is as fair as a Rose. — Change into comparative degree.',
-                  opts: ['A rose is not fairer than she.', 'She is fairer than a rose.', 'She is more fair than rose.'], ans: 0,
-                  exp: '✅ Comparative: “A rose is not fairer than she” – ইতিবাচক থেকে তুলনামূলক।' },
-                { q: 'Gandhiji sacrificed his life for his motherland. — Replace with phrasal verb (give up).',
-                  opts: ['gave up', 'look into', 'look for'], ans: 0,
-                  exp: '✅ “sacrificed” → “gave up” – উৎসর্গ করা।' },
-                { q: 'Police is investigating the case. — Replace with phrasal verb (look into).',
-                  opts: ['looking into', 'give up', 'come by'], ans: 0,
-                  exp: '✅ “investigating” → “looking into” – তদন্ত করা।' },
-                { q: 'She is trying to find a job. — Replace with phrasal verb (look for).',
-                  opts: ['looking for', 'give up', 'look into'], ans: 0,
-                  exp: '✅ “find” → “looking for” – খোঁজ করা।' }
+                { q: 'Arijit Singh is a famous singer. He can sing different kinds of songs. → Join into a simple sentence.', blanks: ['Being a famous singer, Arijit Singh can sing different kinds of songs.'], exp: '✅ “Being a famous singer” – participle দিয়ে সরল বাক্য।' },
+                { q: 'It was raining hard. Abir went to school. → Turn into a compound sentence.', blanks: ['It was raining hard, but Abir went to school.'], exp: '✅ Compound: “but” দিয়ে যুক্ত – দুটি স্বাধীন clause।' },
+                { q: 'The Nile is the longest river in Africa. It flows through many countries. → Change into a complex sentence.', blanks: ['The Nile, which is the longest river in Africa, flows through many countries.'], exp: '✅ Complex: “which is the longest river in Africa” – relative clause।' },
+                { q: 'I went to the market. I had to buy a fish. → Join into a simple sentence.', blanks: ['I went to the market to buy a fish.'], exp: '✅ Simple: infinitive “to buy” দিয়ে যুক্ত।' },
+                { q: 'He completed his work. He took rest. → Join into a simple sentence.', blanks: ['Having completed his work, he took rest.'], exp: '✅ “Having completed” – participle দিয়ে সরল বাক্য।' },
+                { q: 'I do not like tea. I do not like coffee. → Join using "Neither...Nor".', blanks: ['I like neither tea nor coffee.'], exp: '✅ “neither … nor” – উভয়ই না।' },
+                { q: 'Can we ever forget our childhood days? → Turn into an assertive sentence.', blanks: ['We can never forget our childhood days.'], exp: '✅ Assertive: “We can never forget our childhood days.”' },
+                { q: 'He is too short to reach the fruit. → Remove "too...to".', blanks: ['He is so short that he cannot reach the fruit.'], exp: '✅ “too … to” → “so … that … cannot” – জটিল বাক্য।' },
+                { q: 'Do not read the letter. It is confidential. → Join into a simple sentence.', blanks: ['Do not read the confidential letter.'], exp: '✅ সরল বাক্য: “Do not read the confidential letter” – গুণবাচক শব্দ যোগ।' },
+                { q: 'You are too lazy to shine in life. → Convert to a complex sentence.', blanks: ['You are so lazy that you cannot shine in life.'], exp: '✅ “too … to” → “so … that … cannot” – জটিল বাক্য।' }
+            ]
+        },
+        // ====== SET 10: Phrasal Verbs (All) ======
+        {
+            name: "১০. Phrasal Verbs",
+            questions: [
+                { q: 'Tanima is in search of a job. → Replace with phrasal verb.', blanks: ['look for'], exp: '✅ “in search of” → “look for” – খোঁজ করা।' },
+                { q: 'Ankan understands what I am saying. → Replace with phrasal verb.', blanks: ['make out'], exp: '✅ “understands” → “make out” – বুঝতে পারা।' },
+                { q: 'Evening starts early now. → Replace with phrasal verb.', blanks: ['sets in'], exp: '✅ “starts” → “set in” – শুরু হওয়া (ঋতু/সময়)।' },
+                { q: 'They started their journey early in the morning. → Replace with phrasal verb.', blanks: ['set out'], exp: '✅ “started journey” → “set out” – যাত্রা শুরু করা।' },
+                { q: 'She resembles her mother. → Replace with phrasal verb.', blanks: ['takes after'], exp: '✅ “resembles” → “take after” – সদৃশ হওয়া।' },
+                { q: 'Police is investigating the case. → Replace with phrasal verb.', blanks: ['looking into'], exp: '✅ “investigating” → “look into” – তদন্ত করা।' },
+                { q: 'My friend visited me yesterday. → Replace with phrasal verb.', blanks: ['called on'], exp: '✅ “visited” → “called on” – দেখা করতে আসা।' },
+                { q: 'The police followed the thief. → Replace with phrasal verb.', blanks: ['came after'], exp: '✅ “followed” → “came after” – অনুসরণ করা।' },
+                { q: 'We have won the match. → Replace with phrasal verb.', blanks: ['borne away'], exp: '✅ “won” → “borne away” – জয়লাভ করা।' },
+                { q: 'A new university has been built. → Replace with phrasal verb.', blanks: ['set up'], exp: '✅ “has been built” → “has been set up” – স্থাপন করা।' }
+            ]
+        },
+        // ====== SET 11: Phrasal Verbs (More) ======
+        {
+            name: "১১. Phrasal Verbs-২",
+            questions: [
+                { q: 'My mother taught me not to disrespect anyone. → Replace with phrasal verb.', blanks: ['look down upon'], exp: '✅ “disrespect” → “look down upon” – অবজ্ঞা করা।' },
+                { q: 'Avoid bad company. → Replace with phrasal verb.', blanks: ['keep away from'], exp: '✅ “Avoid” → “keep away from” – এড়িয়ে চলা।' },
+                { q: 'The siblings quarrelled over their ancestral place. → Replace with phrasal verb.', blanks: ['fell out'], exp: '✅ “quarrelled” → “fell out” – ঝগড়া করা।' },
+                { q: 'The secretary distributed the prizes. → Replace with phrasal verb.', blanks: ['gave away'], exp: '✅ “distributed” → “gave away” – বিতরণ করা।' },
+                { q: 'How could you tolerate such rude words? → Replace with phrasal verb.', blanks: ['bear with'], exp: '✅ “tolerate” → “bear with” – সহ্য করা।' },
+                { q: 'The girl continued practising the song. → Replace with phrasal verb.', blanks: ['kept on'], exp: '✅ “continued” → “kept on” – চালিয়ে যাওয়া।' },
+                { q: 'The great leader died last week. → Replace with phrasal verb.', blanks: ['passed away'], exp: '✅ “died” → “passed away” – মৃত্যুবরণ করা।' },
+                { q: 'Gandhiji sacrificed his life. → Replace with phrasal verb.', blanks: ['gave up'], exp: '✅ “sacrificed” → “gave up” – উৎসর্গ করা।' },
+                { q: 'She is trying to find a job. → Replace with phrasal verb.', blanks: ['looking for'], exp: '✅ “find” → “looking for” – খোঁজ করা।' },
+                { q: 'The workers have withdrawn the strike. → Replace with phrasal verb.', blanks: ['called off'], exp: '✅ “withdrawn” → “called off” – প্রত্যাহার করা।' }
+            ]
+        },
+        // ====== SET 12: More Phrasal Verbs ======
+        {
+            name: "১২. Phrasal Verbs-৩",
+            questions: [
+                { q: 'The man abandoned evil company. → Replace with phrasal verb.', blanks: ['gave up'], exp: '✅ “abandoned” → “gave up” – ত্যাগ করা।' },
+                { q: 'Let the police come and investigate. → Replace with phrasal verb.', blanks: ['look into'], exp: '✅ “investigate” → “look into” – তদন্ত করা।' },
+                { q: 'The thief saw me and fled. → Replace with phrasal verb.', blanks: ['ran off'], exp: '✅ “fled” → “ran off” – পালিয়ে যাওয়া।' },
+                { q: 'The actor has gained a lot of weight. → Replace with phrasal verb.', blanks: ['put on'], exp: '✅ “gained weight” → “put on” – ওজন বাড়া।' },
+                { q: 'He experienced great suffering. → Replace with phrasal verb.', blanks: ['went through'], exp: '✅ “experienced” → “went through” – অভিজ্ঞতা লাভ করা।' },
+                { q: 'In Puri I stayed in Sea View Hotel. → Replace with phrasal verb.', blanks: ['put up'], exp: '✅ “stayed” → “put up” – থাকা (অস্থায়ী)।' },
+                { q: 'The meeting was postponed. → Replace with phrasal verb.', blanks: ['put off'], exp: '✅ “postponed” → “put off” – স্থগিত করা।' },
+                { q: 'We must reduce our daily expenses. → Replace with phrasal verb.', blanks: ['cut down'], exp: '✅ “reduce” → “cut down” – কমানো।' },
+                { q: 'You must not hide anything from the police. → Replace with phrasal verb.', blanks: ['hold back'], exp: '✅ “hide” → “hold back” – গোপন করা।' },
+                { q: 'Overeating affects our health. → Replace with phrasal verb.', blanks: ['tells upon'], exp: '✅ “affects” → “tells upon” – প্রভাব ফেলা।' }
+            ]
+        },
+        // ====== SET 13: More Narration ======
+        {
+            name: "১৩. Narration-২",
+            questions: [
+                { q: '"How did you get here, child?" asked the man. → Change narration.', blanks: ['The man asked the child how he had got there.'], exp: '✅ “asked + how + had got” – indirect question + past perfect।' },
+                { q: '"Plastic has no death", said the teacher. → Change narration.', blanks: ['The teacher told the students that plastic has no death.'], exp: '✅ “told … that plastic has no death” – universal truth, tense不变।' },
+                { q: 'He said to me, "Please lend me your book." → Change narration.', blanks: ['He requested me to lend him my book.'], exp: '✅ “requested me to lend him my book” – অনুরোধ।' },
+                { q: 'He said to me, "Let us go for a picnic." → Change narration.', blanks: ['He proposed to me that we should go for a picnic.'], exp: '✅ “proposed that we should” – প্রস্তাব।' },
+                { q: 'The girl said to the teacher, "I was ill yesterday." → Change narration.', blanks: ['The girl told the teacher that she had been ill the previous day.'], exp: '✅ “had been” + “the previous day” – past perfect + time change।' },
+                { q: 'The teacher said, "Why is everything late today?" → Change narration.', blanks: ['The teacher asked why everything was late that day.'], exp: '✅ “asked why” + “was” + “that day” – indirect question + time change।' },
+                { q: 'Father said, "May you prosper in life." → Change narration.', blanks: ['Father blessed me that I might prosper in life.'], exp: '✅ “blessed that I might” – আশীর্বাদমূলক indirect speech।' },
+                { q: '"I think it no disgrace to occupy my place", said the squirrel. → Change narration.', blanks: ['The squirrel said that it thought it no disgrace to occupy its place.'], exp: '✅ “said that it thought” – past tense + possessive change।' },
+                { q: 'The man said to me, "How did you get here?" → Change narration.', blanks: ['The man asked me how I had got there.'], exp: '✅ “asked + how + had got” – indirect question + past perfect।' },
+                { q: 'She said, "I have your secret here inside my bag." → Change narration.', blanks: ['She said that she had my secret there inside her bag.'], exp: '✅ “said that she had” + “there” + “her bag” – indirect speech।' }
+            ]
+        },
+        // ====== SET 14: More Transformation ======
+        {
+            name: "১৪. Transformation-২",
+            questions: [
+                { q: 'The people were too stunned to speak. → Make it complex.', blanks: ['The people were so stunned that they could not speak.'], exp: '✅ “too … to” → “so … that … could not” – জটিল বাক্য।' },
+                { q: 'The Tajmahal, the most beautiful building in India was built by Shahjahan. → Turn into a complex sentence.', blanks: ['The Tajmahal, which is the most beautiful building in India, was built by Shahjahan.'], exp: '✅ “which is the most beautiful building in India” – relative clause।' },
+                { q: 'If you do not stop eating junk food, you will fall ill. → Use "unless".', blanks: ['Unless you stop eating junk food, you will fall ill.'], exp: '✅ “Unless you stop” – “if not” এর পরিবর্তে।' },
+                { q: 'I heard what he said to me. → Change into a compound sentence.', blanks: ['He said something to me and I heard it.'], exp: '✅ Compound: “He said something to me and I heard it.”' },
+                { q: 'My mother gave me a book on my birthday and I liked it very much. → Rewrite using a relative clause.', blanks: ['My mother gave me a book on my birthday which I liked very much.'], exp: '✅ “which I liked very much” – relative clause।' },
+                { q: 'My grandmother told me an interesting story. It was about ghosts. → Join into a complex sentence.', blanks: ['My grandmother told me an interesting story which was about ghosts.'], exp: '✅ “which was about ghosts” – relative clause।' },
+                { q: 'I shall meet you when I complete my work. → Turn into a simple sentence.', blanks: ['I shall meet you on completing my work.'], exp: '✅ “on completing” – preposition + gerund দিয়ে সরল বাক্য।' },
+                { q: 'It always pours. → Make it negative.', blanks: ['It never pours.'], exp: '✅ “It never pours” – সম্পূর্ণ নেতিবাচক।' },
+                { q: 'The river is too wide to cross. → Turn into a complex sentence.', blanks: ['The river is so wide that one cannot cross it.'], exp: '✅ “too … to” → “so … that … cannot” – জটিল বাক্য।' },
+                { q: 'Though he is strong, he is timid. → Turn into a simple sentence.', blanks: ['In spite of being strong, he is timid.'], exp: '✅ “In spite of being strong” – সরল বাক্য (Despite)।' }
+            ]
+        },
+        // ====== SET 15: More Voice Change (Image 1 & 2) ======
+        {
+            name: "১৫. Voice Change-৩",
+            questions: [
+                { q: 'She had once written a letter to her brother. → Change the voice.', blanks: ['A letter had once been written to her brother by her.'], exp: '✅ Passive: “had been written” – past perfect passive।' },
+                { q: 'Give it to your headmaster and go to your class. → Make it a simple sentence.', blanks: ['Give it to your headmaster before going to your class.'], exp: '✅ Simple: “before going” – gerund দিয়ে সরলীকরণ।' },
+                { q: 'The patient will recover within a week. → Replace with phrasal verb.', blanks: ['come round'], exp: '✅ “recover” → “come round” – সুস্থ হওয়া।' },
+                { q: 'Please do not reject my proposal. → Replace with phrasal verb.', blanks: ['turn down'], exp: '✅ “reject” → “turn down” – প্রত্যাখ্যান করা।' },
+                { q: 'He wore a white shirt. → Replace with phrasal verb.', blanks: ['put on'], exp: '✅ “wore” → “put on” – পরিধান করা।' },
+                { q: 'I do not know his address. → Change the voice.', blanks: ['His address is not known to me.'], exp: '✅ Passive: “is not known to me” – পরিচিত নয়।' },
+                { q: 'The villagers were chasing the herd of elephants. → Replace with phrasal verb.', blanks: ['running after'], exp: '✅ “chasing” → “running after” – তাড়া করা।' },
+                { q: 'They must maintain the prestige of the school. → Replace with phrasal verb.', blanks: ['keep up'], exp: '✅ “maintain” → “keep up” – বজায় রাখা।' },
+                { q: 'Adrija\'s proposal was rejected by Koushiki. → Replace with phrasal verb.', blanks: ['turned down'], exp: '✅ “rejected” → “turned down” – প্রত্যাখ্যান করা।' },
+                { q: 'The umbrella was beginning ______ fade ______ little. ______ a bright blue it had changed to a light blue.', blanks: ['to', 'a', 'From'], exp: '✅ “beginning to fade”, “a little”, “From a bright blue” – সঠিক preposition ও article।' }
+            ]
+        },
+        // ====== SET 16: Final Mixed ======
+        {
+            name: "১৬. Mixed Practice",
+            questions: [
+                { q: 'What a shocking sight! → Change into an assertive sentence.', blanks: ['It is a very shocking sight.'], exp: '✅ “It is a very shocking sight.” – বিবৃতিমূলক।' },
+                { q: 'To err is human and to forgive is divine. → Rewrite using gerunds.', blanks: ['Erring is human and forgiving is divine.'], exp: '✅ “Erring is human and forgiving is divine” – gerund ব্যবহার।' },
+                { q: 'There was an unnatural silence. → Turn into a complex sentence.', blanks: ['There was a silence which was unnatural.'], exp: '✅ “which was unnatural” – relative clause।' },
+                { q: 'You should not take pride in your wealth. → Use the adjective form of "pride".', blanks: ['You should not be proud of your wealth.'], exp: '✅ “pride” → “proud” + “be proud of”' },
+                { q: 'They saw the giant playing in the garden. → Make it complex.', blanks: ['They saw the giant who was playing in the garden.'], exp: '✅ “who was playing in the garden” – relative clause।' },
+                { q: 'It was an agonizing walk. → Use the noun form of "agonizing".', blanks: ['It was a walk full of agony.'], exp: '✅ “agonizing” → “agony” + “full of agony”' },
+                { q: 'They were poor but they were happy. → Make it a complex sentence.', blanks: ['Although they were poor, they were happy.'], exp: '✅ “Although they were poor” – subordinate clause।' },
+                { q: 'The child was short. He could not climb up the tree. → Join into a complex sentence.', blanks: ['The child was so short that he could not climb up the tree.'], exp: '✅ “so … that” – জটিল বাক্য।' },
+                { q: 'I do not know her. → Turn into a complex sentence.', blanks: ['I do not know who she is.'], exp: '✅ “who she is” – noun clause।' },
+                { q: 'He is rich. He is not happy. → Join into a single sentence.', blanks: ['Though he is rich, he is not happy.'], exp: '✅ “Though” দিয়ে যুক্ত – বিরোধিতা প্রকাশ।' }
             ]
         }
     ];
@@ -477,13 +334,36 @@
     const menuDropdown = document.getElementById('menuDropdown');
     let currentSet = 0;
 
-    // Build menu buttons
+    // Build menu
     setsData.forEach((set, idx) => {
         const btn = document.createElement('button');
         btn.dataset.index = idx;
         btn.textContent = set.name;
         menuDropdown.appendChild(btn);
     });
+
+    let totalQ = 0;
+    setsData.forEach(s => totalQ += s.questions.length);
+    document.getElementById('totalQ').textContent = totalQ + 'টি প্রশ্ন';
+
+    let progress = {};
+
+    function updateProgress(setIdx) {
+        const card = document.querySelectorAll('.set-card')[setIdx];
+        if (!card) return;
+        const blocks = card.querySelectorAll('.question-block');
+        let done = 0;
+        blocks.forEach(block => {
+            const input = block.querySelector('.answer-input');
+            if (input && (input.className.includes('correct') || input.className.includes('wrong'))) {
+                done++;
+            }
+        });
+        const total = blocks.length;
+        const pct = total > 0 ? (done / total) * 100 : 0;
+        const fill = document.getElementById('progressFill');
+        if (fill) fill.style.width = pct + '%';
+    }
 
     function renderAllSets() {
         container.innerHTML = '';
@@ -492,7 +372,6 @@
             card.className = `set-card${idx === currentSet ? ' active' : ''}`;
             card.dataset.index = idx;
 
-            // header
             const header = document.createElement('div');
             header.className = 'set-header';
             header.innerHTML = `
@@ -501,55 +380,115 @@
             `;
             card.appendChild(header);
 
-            // questions
             set.questions.forEach((q, qi) => {
                 const block = document.createElement('div');
                 block.className = 'question-block';
 
                 const qText = document.createElement('div');
                 qText.className = 'question-text';
-                qText.textContent = `${qi+1}. ${q.q}`;
+                let displayText = q.q;
+                const blankCount = (q.blanks || []).length;
+                if (blankCount > 0) {
+                    let parts = displayText.split('______');
+                    let newText = '';
+                    for (let i = 0; i < parts.length; i++) {
+                        newText += parts[i];
+                        if (i < parts.length - 1) {
+                            newText += `<span class="blank">[${i+1}]</span>`;
+                        }
+                    }
+                    displayText = newText;
+                }
+                qText.innerHTML = `${qi+1}. ${displayText}`;
                 block.appendChild(qText);
 
-                const optDiv = document.createElement('div');
-                optDiv.className = 'options';
+                const answerArea = document.createElement('div');
+                answerArea.className = 'answer-area';
 
-                // If options are array of arrays (for fill-in-the-blanks)
-                let optList = q.opts;
-                // If options are simple array (for transformation)
-                if (q.opts.length > 0 && typeof q.opts[0] === 'string') {
-                    optList = q.opts.map(o => [o]);
-                }
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'answer-input';
+                input.placeholder = 'আপনার উত্তর টাইপ করুন...';
+                answerArea.appendChild(input);
 
-                optList.forEach((optArr, oi) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'option-btn';
-                    btn.textContent = Array.isArray(optArr) ? optArr.join(' · ') : optArr;
-                    btn.dataset.opt = oi;
+                const btnGroup = document.createElement('div');
+                btnGroup.className = 'btn-group';
 
-                    btn.addEventListener('click', function() {
-                        const parent = this.closest('.question-block');
-                        parent.querySelectorAll('.option-btn').forEach(b => {
-                            b.classList.remove('correct', 'wrong');
-                        });
+                const checkBtn = document.createElement('button');
+                checkBtn.className = 'check-btn';
+                checkBtn.textContent = '✅ চেক করুন';
 
-                        const isCorrect = (oi === q.ans);
-                        this.classList.add(isCorrect ? 'correct' : 'wrong');
+                const showBtn = document.createElement('button');
+                showBtn.className = 'show-answer-btn';
+                showBtn.textContent = '💡 দেখুন';
 
-                        let expl = parent.querySelector('.explanation');
-                        if (!expl) {
-                            expl = document.createElement('div');
-                            expl.className = 'explanation';
-                            parent.appendChild(expl);
+                btnGroup.appendChild(checkBtn);
+                btnGroup.appendChild(showBtn);
+                answerArea.appendChild(btnGroup);
+
+                const statusText = document.createElement('div');
+                statusText.className = 'status-text';
+                statusText.textContent = '';
+
+                const explDiv = document.createElement('div');
+                explDiv.className = 'explanation';
+                const correctAns = (q.blanks || []).join(', ');
+                explDiv.innerHTML = `
+                    <strong>📖 সঠিক উত্তর:</strong> <span class="correct-answer">${correctAns}</span><br>
+                    <strong>💡 ব্যাখ্যা:</strong> ${q.exp || 'সঠিক উত্তরটি উপরে দেওয়া আছে।'}
+                `;
+
+                checkBtn.addEventListener('click', function() {
+                    const userAnswer = input.value.trim();
+                    const correctAnswers = q.blanks || [];
+                    const userParts = userAnswer.split(/[,،\s]+/).filter(p => p.length > 0);
+                    
+                    let allCorrect = false;
+                    if (correctAnswers.length === 1) {
+                        allCorrect = userAnswer.toLowerCase() === correctAnswers[0].toLowerCase();
+                    } else if (userParts.length === correctAnswers.length) {
+                        allCorrect = true;
+                        for (let i = 0; i < correctAnswers.length; i++) {
+                            if (userParts[i].toLowerCase() !== correctAnswers[i].toLowerCase()) {
+                                allCorrect = false;
+                                break;
+                            }
                         }
-                        expl.innerHTML = `<strong>📖 ব্যাখ্যা:</strong> ${q.exp}`;
-                        expl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    });
+                    }
 
-                    optDiv.appendChild(btn);
+                    if (allCorrect && userAnswer.length > 0) {
+                        input.className = 'answer-input correct';
+                        statusText.innerHTML = '<span class="result-badge correct">✅ সঠিক উত্তর!</span>';
+                    } else if (userAnswer.length > 0) {
+                        input.className = 'answer-input wrong';
+                        statusText.innerHTML = `<span class="result-badge wrong">❌ ভুল উত্তর।</span> সঠিক: "${correctAnswers.join(', ')}"`;
+                    } else {
+                        statusText.textContent = '⚠️ অনুগ্রহ করে উত্তর টাইপ করুন।';
+                        statusText.style.color = '#e65100';
+                    }
+
+                    explDiv.classList.add('show');
+                    updateProgress(idx);
                 });
 
-                block.appendChild(optDiv);
+                showBtn.addEventListener('click', function() {
+                    const correctAns = (q.blanks || []).join(', ');
+                    input.value = correctAns;
+                    input.className = 'answer-input correct';
+                    statusText.innerHTML = '<span class="result-badge correct">✅ সঠিক উত্তর দেখানো হয়েছে।</span>';
+                    explDiv.classList.add('show');
+                    updateProgress(idx);
+                });
+
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        checkBtn.click();
+                    }
+                });
+
+                block.appendChild(answerArea);
+                block.appendChild(statusText);
+                block.appendChild(explDiv);
                 card.appendChild(block);
             });
 
@@ -565,19 +504,17 @@
         document.querySelectorAll('.menu-dropdown button').forEach((btn, i) => {
             btn.classList.toggle('active-set', i === index);
         });
-        // Close dropdown on mobile
         const dd = document.getElementById('menuDropdown');
         if (window.innerWidth < 640) dd.style.display = 'none';
+        updateProgress(index);
     }
 
-    // Toggle menu
     document.getElementById('menuToggle').addEventListener('click', function(e) {
         e.stopPropagation();
         const dd = document.getElementById('menuDropdown');
         dd.style.display = dd.style.display === 'none' ? 'flex' : 'none';
     });
 
-    // Menu button clicks
     document.querySelectorAll('.menu-dropdown button').forEach((btn) => {
         btn.addEventListener('click', function() {
             showSet(parseInt(this.dataset.index));
@@ -586,7 +523,6 @@
         });
     });
 
-    // Close dropdown on outside click
     document.addEventListener('click', function(e) {
         const dd = document.getElementById('menuDropdown');
         const toggle = document.getElementById('menuToggle');
@@ -595,10 +531,9 @@
         }
     });
 
-    // Initialize
     renderAllSets();
     showSet(0);
 })();
 </script>
 </body>
-</html>
+    </html>
